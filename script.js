@@ -13,41 +13,96 @@ function getRandom(bool)
   return characters;
 }
 
+function shuffle(s) 
+{
+  var arr = s.split('');           // Convert String to array
+  var n = arr.length;              // Length of the array
+  
+  for(var i=0 ; i<n-1 ; ++i) 
+  {
+    var j = Math.floor(Math.random() * n);
+    //var j = getRandomInt(n);       // Get random of [0, n-1]
+    
+    var temp = arr[i];             // Swap arr[i] and arr[j]
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  
+  s = arr.join('');                // Convert Array to string
+  return s;                        // Return shuffled string
+}
+
 //generates the password
 function generatePassword()
 {
   var numCharacters = prompt("How many characters would you like your password to contain (Please enter uptill 128) ?");
+  var special, number, lowercase, uppercase;
+  var s, n, l, u;
 
   if(confirm("Click ok to confirm including special characters"))
   {
-   var special = getRandom("special");
+    special = getRandom("special");
+    s = true;
   }
 
   if(confirm("Click ok to confirm including numbers"))
   {
-    var number = getRandom("number");
+     number = getRandom("number");
+     n = true;
   }
 
   if(confirm("Click ok to confirm including lowercase characters"))
   {
-    var lowercase = getRandom("lowercase");
+     lowercase = getRandom("lowercase");
+     l = true;
   }
 
   if(confirm("Click ok to confirm including uppercase characters"))
   {
-    var uppercase = getRandom("uppercase");
+     uppercase = getRandom("uppercase");
+     u = true;
   }
 
-  var characters = uppercase.concat(lowercase, number, special);
+  var characters = uppercase + lowercase + number + special;
   var charactersLength = characters.length;
   var password = '';
-  
-  for ( var i = 0; i < numCharacters; i++ )
+
+  var i = 0;
+
+  if(s)
+  {
+    var random = special.charAt(Math.floor(Math.random()*special.length));
+    password += random;
+    ++i;
+  }  
+
+  if(n)
+  {
+    var random = number.charAt(Math.floor(Math.random()*number.length));
+    password += random;
+    ++i;
+  }  
+
+  if(l)
+  {
+    var random = lowercase.charAt(Math.floor(Math.random()*lowercase.length));
+    password += random;
+    ++i;
+  }  
+
+  if(u)
+  {
+    var random = uppercase.charAt(Math.floor(Math.random()*uppercase.length));
+    password += random;
+    ++i;
+  }  
+
+  for (; i < numCharacters; i++ )
   {
     password += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
 
-  return password;
+  return shuffle(password);
 }
 
 // Get references to the #generate element
