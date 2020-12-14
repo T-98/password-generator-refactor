@@ -38,7 +38,6 @@ function generatePassword()
     var uppercase = getRandom("uppercase");
   }
 
-
   var characters = uppercase.concat(lowercase, number, special);
   var charactersLength = characters.length;
   var password = '';
@@ -47,12 +46,6 @@ function generatePassword()
   {
     password += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
-
-  console.log(special);
-  console.log(number);
-  console.log(lowercase);
-  console.log(uppercase);
-  console.log(password);
 
   return password;
 }
