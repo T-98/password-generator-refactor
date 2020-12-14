@@ -1,4 +1,4 @@
-# Password Generator Starter Code
+# Password Generator Refactor Code
 ##  This project contains the following files:
 * ***index.html:*** This file contains the html code-base for the deployed app.
 * ***script.js:*** This file conmtains the Javascript code which has been *refactored*
