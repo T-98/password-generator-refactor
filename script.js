@@ -36,7 +36,7 @@ function shuffle(s)
 function generatePassword()
 {
   var numCharacters = prompt("How many characters would you like your password to contain (Please enter uptill 128) ?");
-  var special, number, lowercase, uppercase;
+  var special = "", number = "", lowercase = "", uppercase ="";
   var s, n, l, u;
 
   if(confirm("Click ok to confirm including special characters"))
@@ -66,6 +66,7 @@ function generatePassword()
   var characters = uppercase + lowercase + number + special;
   var charactersLength = characters.length;
   var password = '';
+  console.log(lowercase);
 
   var i = 0;
 
