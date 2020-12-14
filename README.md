@@ -8,3 +8,5 @@
     * *Generate password function:* Added the generate password function which on click of the generate password button returns a randomly generated password based on user input
 
 * ***style.css:*** This file contains the stylesheet for the index.html file, mainly used for the styling of the deployed webpage. 
+
+# Deployed App URL : https://t-98.github.io/password-generator-refactor/
